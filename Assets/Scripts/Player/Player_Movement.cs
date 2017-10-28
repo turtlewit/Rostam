@@ -9,6 +9,7 @@ public class Player_Movement : MonoBehaviour {
     private bool grounded = false, invulerable = false;
     private Camera_Shake c;
     int shake_count = 0;
+    public Animator anim;
 
 	public SpriteRenderer sr;
 
@@ -38,6 +39,10 @@ public class Player_Movement : MonoBehaviour {
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.3f);
         }
+        if (rb.velocity.x != 0)
+            anim.SetBool("moving", true);
+        else
+            anim.SetBool("moving", false);
 
         if((!Input.GetKey(KeyCode.D)) && (!Input.GetKey(KeyCode.A)))
         {
