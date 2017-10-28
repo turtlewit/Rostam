@@ -205,6 +205,7 @@ MonoBehaviour:
   c: {fileID: 0}
   line: {fileID: 1446283187235750}
   accuracy: 0.2
+  shoot_knockback: 5
 --- !u!120 &120041180934786442
 LineRenderer:
   m_ObjectHideFlags: 1
