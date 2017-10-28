@@ -7,14 +7,17 @@ public class Player_Movement : MonoBehaviour {
     private Rigidbody2D rb;
     public float speed, jump_power;
     private bool grounded = false;
+    private Camera_Shake c;
+    int shake_count = 0;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        c = Camera.main.GetComponent<Camera_Shake>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         touching_ground();
 		if(Input.GetKey(KeyCode.A))
         {
@@ -31,12 +34,17 @@ public class Player_Movement : MonoBehaviour {
         }
         if(rb.velocity.y < 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.2f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.3f);
         }
 
         if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(c.Shake(1));
         }
 	}
 
