@@ -396,8 +396,8 @@ Transform:
   m_Father: {fileID: 688028931}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &549109061
-BoxCollider2D:
+--- !u!60 &549109061
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -408,7 +408,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08003831, y: -0.20581293}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -418,9 +418,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.3740134, y: 1.137208}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.9384308, y: -1.0406466}
+      - {x: -3.3281794, y: -0.5698035}
+      - {x: -3.301427, y: -0.3281238}
+      - {x: 2.2917387, y: 0.12408984}
+      - {x: 3.1008236, y: -0.18165553}
+      - {x: 3.0827532, y: -0.3928082}
 --- !u!212 &549109062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -454,7 +459,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 55037f47abcf1c94fac8dcee9993b84c, type: 3}
   m_Color: {r: 0.33088237, g: 0.36318466, b: 1, a: 1}
   m_FlipX: 0
@@ -679,19 +684,19 @@ Transform:
   m_Father: {fileID: 688028931}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &800617587
-BoxCollider2D:
+--- !u!60 &800617587
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800617585}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3846fc081511fc4408da6c95f6923dfa, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030539036, y: -0.37321192}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -701,9 +706,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.9700537, y: 1.1679438}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.297485, y: -0.042766206}
+      - {x: -2.2008295, y: -0.42099342}
+      - {x: -2.18119, y: -1.0776522}
+      - {x: 2.4672935, y: -0.6699997}
 --- !u!212 &800617588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -737,7 +745,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: e5414e66b70c35549ab4d08b3dd89dbd, type: 3}
   m_Color: {r: 0.33088237, g: 0.36318466, b: 1, a: 1}
   m_FlipX: 0
@@ -893,8 +901,8 @@ Transform:
   m_Father: {fileID: 688028931}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &995346040
-BoxCollider2D:
+--- !u!60 &995346040
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -905,7 +913,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.100167274, y: -0.3082103}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -915,9 +923,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.409086, y: 1.1232833}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.84, y: -0.84}
+      - {x: -0.62, y: -0.82}
+      - {x: -0.11, y: -0.77}
+      - {x: -2.9339104, y: -1.0824994}
+      - {x: -3.330725, y: -0.57280934}
+      - {x: -3.307097, y: -0.35501254}
+      - {x: 2.288309, y: 0.13790119}
+      - {x: 3.0758934, y: -0.12335861}
+      - {x: 3.1025705, y: -0.46257293}
+      - {x: 2.1699998, y: -0.53999996}
 --- !u!212 &995346041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -951,7 +968,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 55037f47abcf1c94fac8dcee9993b84c, type: 3}
   m_Color: {r: 0.33088237, g: 0.36318466, b: 1, a: 1}
   m_FlipX: 0
@@ -1053,19 +1070,19 @@ Transform:
   m_Father: {fileID: 688028931}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1073279645
-BoxCollider2D:
+--- !u!60 &1073279645
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1073279643}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3846fc081511fc4408da6c95f6923dfa, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.087653875, y: -0.15170819}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1075,9 +1092,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.421037, y: 1.3034163}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.912623, y: -0.9920628}
+      - {x: -3.3232305, y: -0.6277803}
+      - {x: -3.2973266, y: -0.34206784}
+      - {x: 2.274486, y: 0.18591164}
+      - {x: 3.1352553, y: -0.17364064}
+      - {x: 3.1153474, y: -0.39889887}
 --- !u!212 &1073279646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1111,7 +1133,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 2bd9ff48f5b66824b8c00d7a17971492, type: 3}
   m_Color: {r: 0.33088237, g: 0.36318466, b: 1, a: 1}
   m_FlipX: 0
@@ -1631,6 +1653,11 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
+        type: 2}
+      propertyPath: is_auto
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 830671317faddb84996da50b571a905a, type: 2}
