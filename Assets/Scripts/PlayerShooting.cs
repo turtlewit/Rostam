@@ -60,7 +60,19 @@ public class PlayerShooting : MonoBehaviour {
 		{
 			if (raycast.collider.gameObject.tag == "Enemy")
 			{
-				Debug.Log(raycast.collider.name);
+				Enemy_Destroy destroy_script = raycast.collider.gameObject.GetComponent<Enemy_Destroy>();
+				ParticleSystem ps = destroy_script.ps;
+				Debug.Log(transform.position.x - raycast.point.x);
+
+				if ((transform.position.x - raycast.point.x) > 0)
+				{
+					ps.transform.rotation = Quaternion.Euler(new Vector3(200, 90, 0));
+				} else
+				{
+					ps.transform.rotation = Quaternion.Euler(new Vector3(-20, 90, 0));
+				}
+				ps.Play();
+				destroy_script.Destroy();
 			}
 			line_target = raycast.point;
 			draw_line_frames = 2;
