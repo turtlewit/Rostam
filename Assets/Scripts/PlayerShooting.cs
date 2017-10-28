@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour {
 	public GameObject line;
 
 	LineRenderer lr;
+	Vector3 line_target;
 
 	int draw_line_frames;
 
@@ -26,9 +27,24 @@ public class PlayerShooting : MonoBehaviour {
 		target = new Vector2(world_pos.x, world_pos.y);
 		pos = new Vector2(transform.position.x, transform.position.y);
 
+		lr.SetPosition(1, transform.position);
+
 		if (Input.GetButtonDown("Fire1")) {
 			Shoot();
 		}
+
+		lr.enabled = false;
+		if (draw_line_frames > 0)
+		{
+			DrawLine();
+			draw_line_frames--;
+		}
+	}
+
+	void DrawLine()
+	{
+		lr.enabled = true;
+		lr.SetPosition(0, line_target);
 	}
 
 	/*
@@ -50,6 +66,12 @@ public class PlayerShooting : MonoBehaviour {
 		if (raycast.collider)
 		{
 			Debug.Log(raycast.collider.name);
+			line_target = raycast.point;
+			draw_line_frames = 2;
+		} else
+		{
+			line_target = new Vector3(pos.x, pos.y, 0) + new Vector3(dir.x, dir.y, 0) * 100;
+			draw_line_frames = 2;
 		}
 
 		
