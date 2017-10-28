@@ -82,6 +82,8 @@ public class PlayerShooting : MonoBehaviour {
 			draw_line_frames = 2;
 		}
 
+		StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1));
+
 		
 	}
 }

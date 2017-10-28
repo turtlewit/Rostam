@@ -10,6 +10,8 @@ public class Player_Movement : MonoBehaviour {
     private Camera_Shake c;
     int shake_count = 0;
 
+	public SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -74,7 +76,7 @@ public class Player_Movement : MonoBehaviour {
         float timer = Time.time;
         float end_time = timer + time;
         bool flash_on = false;
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        //SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
         while(timer < end_time)
         {
