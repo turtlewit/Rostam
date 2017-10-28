@@ -10,6 +10,7 @@ public class PlayerShooting : MonoBehaviour {
 	public float accuracy;
 
 	public float shoot_knockback;
+    public ParticleSystem shoot_ps, explosion_ps;
 
 	LineRenderer lr;
 	Vector3 line_target;
@@ -54,6 +55,11 @@ public class PlayerShooting : MonoBehaviour {
 		target = new Vector2(world_pos.x, world_pos.y);
 		pos = new Vector2(transform.position.x, transform.position.y);
 		Vector2 dir = (target - pos).normalized;
+
+        shoot_ps.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)));
+        shoot_ps.Play();
+        
+
 		float n_accuracy = (float)(accuracy * (new System.Random().NextDouble() * new System.Random().NextDouble())); // Great hack to reduce chance of high direction variation
 		dir = new Vector2(dir.x + Random.Range(-n_accuracy, n_accuracy), dir.y + Random.Range(-n_accuracy, n_accuracy));
 		Debug.Log(dir);
@@ -61,6 +67,8 @@ public class PlayerShooting : MonoBehaviour {
 		
 		if (raycast.collider)
 		{
+            explosion_ps.transform.position = raycast.point;
+            explosion_ps.Play();
 			if (raycast.collider.gameObject.tag == "Enemy")
 			{
 				Enemy_Destroy destroy_script = raycast.collider.gameObject.GetComponent<Enemy_Destroy>();
