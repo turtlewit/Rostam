@@ -197,16 +197,9 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 800617586}
-  - component: {fileID: 800617588}
-  - component: {fileID: 800617587}
-  - component: {fileID: 800617589}
-=======
   - component: {fileID: 243844366}
   - component: {fileID: 243844368}
   - component: {fileID: 243844367}
->>>>>>> c86fa2f00df97ec62e6f38c8c59e1ab642039208
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Platform
