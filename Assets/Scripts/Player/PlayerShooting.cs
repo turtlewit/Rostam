@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour {
 
     public Game_Manager gm;
+    private AudioSource audio_source;
+    //0 = kill enemy
+    //1 = destroy enemy body
+    public AudioClip[] sounds;
 
 	public Camera c;
 	public GameObject line;
@@ -25,6 +29,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        audio_source = GetComponent<AudioSource>();
 		lr = line.GetComponent<LineRenderer>();
 	}
 	
@@ -71,13 +76,17 @@ public class PlayerShooting : MonoBehaviour {
 		{
             explosion_ps.transform.position = raycast.point;
             explosion_ps.Play();
+
+
 			if (raycast.collider.gameObject.tag == "Enemy")
 			{
 				Enemy_Destroy destroy_script = raycast.collider.gameObject.GetComponent<Enemy_Destroy>();
 				ParticleSystem ps = destroy_script.ps;
-				//Debug.Log(transform.position.x - raycast.point.x);
 
-				if ((transform.position.x - raycast.point.x) > 0)
+
+                //Debug.Log(transform.position.x - raycast.point.x);
+
+                if ((transform.position.x - raycast.point.x) > 0)
 				{
 					ps.transform.rotation = Quaternion.Euler(new Vector3(200, 90, 0));
 				} else
@@ -88,6 +97,15 @@ public class PlayerShooting : MonoBehaviour {
                 if (destroy_script.enabled)
                 {
                     gm.Up_the_Ante();
+                    audio_source.clip = sounds[0];
+                    audio_source.pitch = Random.Range(0.7f, 1.2f);
+                    audio_source.Play();
+                }
+                else
+                {
+                    audio_source.clip = sounds[1];
+                    audio_source.pitch = Random.Range(0.7f, 1.2f);
+                    audio_source.Play();
                 }
                 destroy_script.Destroy();
 
