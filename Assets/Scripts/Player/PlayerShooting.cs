@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
 
+    private bool hit_enemy;
+
 	public Camera c;
 	public GameObject line;
 
@@ -83,6 +85,8 @@ public class PlayerShooting : MonoBehaviour {
 					ps.transform.rotation = Quaternion.Euler(new Vector3(-20, 90, 0));
 				}
 				ps.Play();
+                if (destroy_script.enabled)
+                    hit_enemy = true;
 				destroy_script.Destroy();
 
 				raycast.collider.GetComponent<Rigidbody2D>().AddForce(dir * shoot_knockback, ForceMode2D.Impulse);
@@ -99,4 +103,14 @@ public class PlayerShooting : MonoBehaviour {
 
 		
 	}
+
+
+    public bool get_hit_enemy()
+    {
+        return hit_enemy;
+    }
+    public void reset_hit_enemy()
+    {
+        hit_enemy = false;
+    }
 }
