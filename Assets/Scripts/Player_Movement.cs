@@ -29,6 +29,10 @@ public class Player_Movement : MonoBehaviour {
             rb.AddForce(new Vector2(0, jump_power), ForceMode2D.Impulse);
             grounded = false;
         }
+        if(rb.velocity.y < 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.2f);
+        }
 
         if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
