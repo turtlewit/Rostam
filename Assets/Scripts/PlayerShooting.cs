@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour {
 
 	public Camera c;
+	public GameObject line;
+
+	LineRenderer lr;
+
+	int draw_line_frames;
 
 	Vector3 world_pos;
 	Vector2 target;
@@ -12,7 +17,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		lr = line.GetComponent<LineRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -25,11 +30,14 @@ public class PlayerShooting : MonoBehaviour {
 			Shoot();
 		}
 	}
+
+	/*
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.green;
 		Gizmos.DrawSphere(world_pos, 1);
 	}
+	*/
 
 	void Shoot()
 	{
