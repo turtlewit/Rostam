@@ -64,7 +64,7 @@ public class PlayerShooting : MonoBehaviour {
 
 		float n_accuracy = (float)(accuracy * (new System.Random().NextDouble() * new System.Random().NextDouble())); // Great hack to reduce chance of high direction variation
 		dir = new Vector2(dir.x + Random.Range(-n_accuracy, n_accuracy), dir.y + Random.Range(-n_accuracy, n_accuracy));
-		Debug.Log(dir);
+
 		RaycastHit2D raycast = Physics2D.Raycast(pos, dir);
 		
 		if (raycast.collider)
