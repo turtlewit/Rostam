@@ -8,10 +8,13 @@ public class Game_Manager : MonoBehaviour {
     public PlayerShooting player_shoot;
     public Camera_Shake cs;
     public Player_Access pa;
+    public Texture2D cursor;
 
     void Start()
     {
         StartCoroutine(Game_Increase());
+        Cursor.SetCursor(cursor,new Vector2(16, 16), CursorMode.Auto);
+        
     }
 
 	// Use this for initialization
