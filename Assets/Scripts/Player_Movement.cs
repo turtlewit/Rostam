@@ -6,7 +6,7 @@ public class Player_Movement : MonoBehaviour {
 
     private Rigidbody2D rb;
     public float speed, jump_power;
-    private bool grounded = false;
+    private bool grounded = false, invulerable = false;
     private Camera_Shake c;
     int shake_count = 0;
 
@@ -57,5 +57,33 @@ public class Player_Movement : MonoBehaviour {
             if (rh.collider.tag == "Platform")
                 grounded = true;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+        if (c.tag == "Enemy" && !invulerable)
+        {
+            invulerable = true;
+            print("yo");
+            StartCoroutine(iframes(2));
+        }
+    }
+
+    private IEnumerator iframes(float time)
+    {
+        float timer = Time.time;
+        float end_time = timer + time;
+        bool flash_on = false;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        while(timer < end_time)
+        {
+            sr.color = flash_on ? new Color(sr.color.r, sr.color.g, sr.color.b, .2f) : new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+            timer += 0.07f;
+            flash_on = !flash_on;
+            yield return new WaitForSeconds(0.07f);
+        }
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+        invulerable = false;
     }
 }
