@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 114515942888653634}
   - component: {fileID: 58309435307942352}
   - component: {fileID: 114557635999898334}
+  - component: {fileID: 95411956608504208}
+  - component: {fileID: 114177801984097158}
   m_Layer: 8
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -95,7 +97,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &58309435307942352
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -136,6 +138,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!95 &95411956608504208
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912192566408026}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee04e6076efcc28459da5cea8990bf3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114177801984097158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912192566408026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ac8c366c5e2284192a1adeaedf7b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 100
 --- !u!114 &114515942888653634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 198236512814399384}
-  efm: {fileID: 0}
+  efm: {fileID: 114177801984097158}
 --- !u!198 &198236512814399384
 ParticleSystem:
   m_ObjectHideFlags: 1
