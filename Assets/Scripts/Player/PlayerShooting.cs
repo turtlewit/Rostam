@@ -75,7 +75,7 @@ public class PlayerShooting : MonoBehaviour {
 			{
 				Enemy_Destroy destroy_script = raycast.collider.gameObject.GetComponent<Enemy_Destroy>();
 				ParticleSystem ps = destroy_script.ps;
-				Debug.Log(transform.position.x - raycast.point.x);
+				//Debug.Log(transform.position.x - raycast.point.x);
 
 				if ((transform.position.x - raycast.point.x) > 0)
 				{
