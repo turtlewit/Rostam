@@ -37,7 +37,7 @@ public class Player_Movement : MonoBehaviour {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.3f);
         }
 
-        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        if((!Input.GetKey(KeyCode.D)) && (!Input.GetKey(KeyCode.A)))
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
@@ -52,11 +52,15 @@ public class Player_Movement : MonoBehaviour {
     void touching_ground()
     {
         RaycastHit2D rh = Physics2D.Raycast(transform.position, Vector2.down, .55f);
-        if(rh)
+        if (rh)
         {
             if (rh.collider.tag == "Platform")
                 grounded = true;
+            else
+                grounded = false;
         }
+        else
+            grounded = false;
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -64,7 +68,7 @@ public class Player_Movement : MonoBehaviour {
         if (c.tag == "Enemy" && !invulerable)
         {
             invulerable = true;
-            print("yo");
+            rb.AddForce(new Vector2(-(c.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
             StartCoroutine(iframes(2));
         }
     }
