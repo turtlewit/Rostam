@@ -95,7 +95,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58667532238404556
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 198900431201664016}
+  efm: {fileID: 0}
 --- !u!198 &198900431201664016
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 441d67806b3c709428f56322f4e15ebe
-timeCreated: 1509221776
+guid: cf7e01bee3523a54eb5464c5835bb19a
+timeCreated: 1509221947
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: protagonist_arm_0
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -41,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,21 +94,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: protagonist_arm_0
-      rect:
-        serializedVersion: 2
-        x: 495
-        y: 496
-        width: 190
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 
