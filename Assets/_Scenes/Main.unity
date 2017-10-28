@@ -197,9 +197,16 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
+  - component: {fileID: 800617586}
+  - component: {fileID: 800617588}
+  - component: {fileID: 800617587}
+  - component: {fileID: 800617589}
+=======
   - component: {fileID: 243844366}
   - component: {fileID: 243844368}
   - component: {fileID: 243844367}
+>>>>>>> c86fa2f00df97ec62e6f38c8c59e1ab642039208
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Platform
@@ -225,8 +232,13 @@ BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 800617585}
+  m_Enabled: 0
+=======
   m_GameObject: {fileID: 243844365}
   m_Enabled: 1
+>>>>>>> c86fa2f00df97ec62e6f38c8c59e1ab642039208
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 3846fc081511fc4408da6c95f6923dfa, type: 2}
   m_IsTrigger: 0
@@ -289,7 +301,33 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+<<<<<<< HEAD
+--- !u!68 &800617589
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800617585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: bbf844205e47b9440ac2681bca1a76fc, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+--- !u!1 &1039235474 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1524632743915846, guid: 661febe38471e83428313d3eaa25389a,
+    type: 2}
+  m_PrefabInternal: {fileID: 445265755}
+--- !u!1001 &1041224917
+=======
 --- !u!1001 &299615767
+>>>>>>> c86fa2f00df97ec62e6f38c8c59e1ab642039208
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
