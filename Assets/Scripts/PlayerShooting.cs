@@ -25,7 +25,6 @@ public class PlayerShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 
 		lr.SetPosition(1, transform.position);
 
@@ -47,34 +46,22 @@ public class PlayerShooting : MonoBehaviour {
 		lr.SetPosition(0, line_target);
 	}
 
-	/*
-	private void OnDrawGizmos()
-	{
-		Gizmos.color = Color.green;
-		Gizmos.DrawSphere(world_pos, 1);
-	}
-	*/
-
 	void Shoot()
 	{
-		/*
-		int mouse_x = (int)(Input.mousePosition.x + (rnd.NextDouble() * accuracy * neg));
-		int mouse_y = (int)(Input.mousePosition.y + (rnd.NextDouble() * accuracy * neg));
-		*/
 		world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
 		target = new Vector2(world_pos.x, world_pos.y);
 		pos = new Vector2(transform.position.x, transform.position.y);
-
 		Vector2 dir = (target - pos).normalized;
 		dir = new Vector2(dir.x + Random.Range(-accuracy, accuracy), dir.y + Random.Range(-accuracy, accuracy));
 		Debug.Log(dir);
 		RaycastHit2D raycast = Physics2D.Raycast(pos, dir);
 		
-		//Debug.DrawLine(new Vector3(pos.x, pos.y, 0), new Vector3(pos.x, pos.y, 0) + new Vector3(dir.x, dir.y, 0) * 10, Color.red, Mathf.Infinity);
-
 		if (raycast.collider)
 		{
-			Debug.Log(raycast.collider.name);
+			if (raycast.collider.gameObject.tag == "Enemy")
+			{
+				Debug.Log(raycast.collider.name);
+			}
 			line_target = raycast.point;
 			draw_line_frames = 2;
 		} else
