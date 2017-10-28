@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour {
     //0 = kill enemy
     //1 = destroy enemy body
     public AudioClip[] sounds;
+    public AudioSource shoot_sound;
 
 	public Camera c;
 	public GameObject line;
@@ -58,7 +59,12 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot()
 	{
-		world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
+        //shoot_sound.pitch = Random.Range(0.9f, 1.1f);
+        //shoot_sound.Play();
+        audio_source.clip = sounds[2];
+        audio_source.pitch = Random.Range(0.9f, 1.1f);
+        audio_source.Play();
+        world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
 		target = new Vector2(world_pos.x, world_pos.y);
 		pos = new Vector2(transform.position.x, transform.position.y);
 		Vector2 dir = (target - pos).normalized;
