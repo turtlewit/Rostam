@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
 
-    private bool hit_enemy;
+    public Game_Manager gm;
 
 	public Camera c;
 	public GameObject line;
@@ -86,8 +86,10 @@ public class PlayerShooting : MonoBehaviour {
 				}
 				ps.Play();
                 if (destroy_script.enabled)
-                    hit_enemy = true;
-				destroy_script.Destroy();
+                {
+                    gm.Up_the_Ante();
+                }
+                destroy_script.Destroy();
 
 				raycast.collider.GetComponent<Rigidbody2D>().AddForce(dir * shoot_knockback, ForceMode2D.Impulse);
 			}
@@ -101,16 +103,5 @@ public class PlayerShooting : MonoBehaviour {
 
 		StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
 
-		
-	}
-
-
-    public bool get_hit_enemy()
-    {
-        return hit_enemy;
-    }
-    public void reset_hit_enemy()
-    {
-        hit_enemy = false;
     }
 }

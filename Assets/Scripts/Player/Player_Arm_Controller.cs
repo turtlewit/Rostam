@@ -20,7 +20,6 @@ public class Player_Arm_Controller : MonoBehaviour {
         Vector2 dir = (target - pos).normalized;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)) + offset));
 
-        print(transform.rotation.eulerAngles);
         if(transform.rotation.eulerAngles.z > 120 && transform.rotation.eulerAngles.z < 300)
         {
             arm.SetActive(false);
