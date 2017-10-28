@@ -13,7 +13,7 @@ public class Camera_Follow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         transform.position = Vector2.Lerp(transform.position, thing_to_track.transform.position, track_speed * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }

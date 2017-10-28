@@ -449,5 +449,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78d2e0144494a2489565459aedff14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 450
+  speed: 400
   jump_power: 8
