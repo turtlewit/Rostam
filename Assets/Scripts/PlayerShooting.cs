@@ -52,7 +52,8 @@ public class PlayerShooting : MonoBehaviour {
 		target = new Vector2(world_pos.x, world_pos.y);
 		pos = new Vector2(transform.position.x, transform.position.y);
 		Vector2 dir = (target - pos).normalized;
-		dir = new Vector2(dir.x + Random.Range(-accuracy, accuracy), dir.y + Random.Range(-accuracy, accuracy));
+		float n_accuracy = (float)(accuracy * (new System.Random().NextDouble() * new System.Random().NextDouble())); // Great hack to reduce chance of high direction variation
+		dir = new Vector2(dir.x + Random.Range(-n_accuracy, n_accuracy), dir.y + Random.Range(-n_accuracy, n_accuracy));
 		Debug.Log(dir);
 		RaycastHit2D raycast = Physics2D.Raycast(pos, dir);
 		
@@ -82,7 +83,7 @@ public class PlayerShooting : MonoBehaviour {
 			draw_line_frames = 2;
 		}
 
-		StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1));
+		StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
 
 		
 	}
