@@ -7,6 +7,8 @@ public class PlayerShooting : MonoBehaviour {
 	public Camera c;
 	public GameObject line;
 
+	public float accuracy;
+
 	LineRenderer lr;
 	Vector3 line_target;
 
@@ -23,9 +25,7 @@ public class PlayerShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
-		target = new Vector2(world_pos.x, world_pos.y);
-		pos = new Vector2(transform.position.x, transform.position.y);
+		
 
 		lr.SetPosition(1, transform.position);
 
@@ -57,8 +57,17 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot()
 	{
-		
-		Vector2 dir = target - pos;
+		/*
+		int mouse_x = (int)(Input.mousePosition.x + (rnd.NextDouble() * accuracy * neg));
+		int mouse_y = (int)(Input.mousePosition.y + (rnd.NextDouble() * accuracy * neg));
+		*/
+		world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
+		target = new Vector2(world_pos.x, world_pos.y);
+		pos = new Vector2(transform.position.x, transform.position.y);
+
+		Vector2 dir = (target - pos).normalized;
+		dir = new Vector2(dir.x + Random.Range(-accuracy, accuracy), dir.y + Random.Range(-accuracy, accuracy));
+		Debug.Log(dir);
 		RaycastHit2D raycast = Physics2D.Raycast(pos, dir);
 		
 		//Debug.DrawLine(new Vector3(pos.x, pos.y, 0), new Vector3(pos.x, pos.y, 0) + new Vector3(dir.x, dir.y, 0) * 10, Color.red, Mathf.Infinity);

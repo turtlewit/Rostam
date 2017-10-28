@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   c: {fileID: 844460753}
   line: {fileID: 1772791334}
+  accuracy: 0.2
 --- !u!212 &329127779
 SpriteRenderer:
   m_ObjectHideFlags: 0
