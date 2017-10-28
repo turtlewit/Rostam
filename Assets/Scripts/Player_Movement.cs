@@ -49,15 +49,31 @@ public class Player_Movement : MonoBehaviour {
     void touching_ground()
     {
         RaycastHit2D rh = Physics2D.Raycast(transform.position, Vector2.down, .55f);
-        if (rh)
+        RaycastHit2D rh2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y), Vector2.down, .55f);
+        RaycastHit2D rh3 = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y), Vector2.down, .55f);
+        if (!rh && !rh2 && !rh3)
+            grounded = false;
+        else if (rh)
         {
-            if (rh.collider.tag == "Platform")
+            if (rh.collider.tag == "Platform" || rh.collider.tag == "Enemy")
                 grounded = true;
             else
                 grounded = false;
         }
-        else
-            grounded = false;
+        else if(rh2)
+        {
+            if (rh2.collider.tag == "Platform" || rh2.collider.tag == "Enemy")
+                grounded = true;
+            else
+                grounded = false;
+        }
+        else if(rh3)
+        {
+            if (rh3.collider.tag == "Platform" || rh3.collider.tag == "Enemy")
+                grounded = true;
+            else
+                grounded = false;
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
