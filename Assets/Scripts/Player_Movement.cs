@@ -41,11 +41,6 @@ public class Player_Movement : MonoBehaviour {
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            StartCoroutine(c.Shake(1));
-        }
 	}
 
 
@@ -63,12 +58,13 @@ public class Player_Movement : MonoBehaviour {
             grounded = false;
     }
 
-    void OnTriggerEnter2D(Collider2D c)
+    void OnTriggerStay2D(Collider2D col)
     {
-        if (c.tag == "Enemy" && !invulerable)
+        if (col.tag == "Enemy" && !invulerable)
         {
             invulerable = true;
-            rb.AddForce(new Vector2(-(c.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-(col.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
+            StartCoroutine(c.Shake(4));
             StartCoroutine(iframes(2));
         }
     }
