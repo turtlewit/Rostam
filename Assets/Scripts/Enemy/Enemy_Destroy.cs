@@ -15,6 +15,7 @@ public class Enemy_Destroy : MonoBehaviour {
 	{
 		if (enabled)
 		{
+            GetComponent<Animator>().SetBool("dead", true);
 			if (efm)
 			{
 				GetComponent<Enemy_Flying_Movement>().enabled = false;
