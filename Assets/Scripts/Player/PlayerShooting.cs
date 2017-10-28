@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
 
-    private bool hit_enemy;
+    public Game_Manager gm;
+    private AudioSource audio_source;
+    //0 = kill enemy
+    //1 = destroy enemy body
+    public AudioClip[] sounds;
+    public AudioSource shoot_sound;
 
 	public Camera c;
 	public GameObject line;
@@ -25,6 +30,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        audio_source = GetComponent<AudioSource>();
 		lr = line.GetComponent<LineRenderer>();
 	}
 	
@@ -53,7 +59,12 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot()
 	{
-		world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
+        //shoot_sound.pitch = Random.Range(0.9f, 1.1f);
+        //shoot_sound.Play();
+        audio_source.clip = sounds[2];
+        audio_source.pitch = Random.Range(0.9f, 1.1f);
+        audio_source.Play();
+        world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
 		target = new Vector2(world_pos.x, world_pos.y);
 		pos = new Vector2(transform.position.x, transform.position.y);
 		Vector2 dir = (target - pos).normalized;
@@ -71,13 +82,17 @@ public class PlayerShooting : MonoBehaviour {
 		{
             explosion_ps.transform.position = raycast.point;
             explosion_ps.Play();
+
+
 			if (raycast.collider.gameObject.tag == "Enemy")
 			{
 				Enemy_Destroy destroy_script = raycast.collider.gameObject.GetComponent<Enemy_Destroy>();
 				ParticleSystem ps = destroy_script.ps;
-				//Debug.Log(transform.position.x - raycast.point.x);
 
-				if ((transform.position.x - raycast.point.x) > 0)
+
+                //Debug.Log(transform.position.x - raycast.point.x);
+
+                if ((transform.position.x - raycast.point.x) > 0)
 				{
 					ps.transform.rotation = Quaternion.Euler(new Vector3(200, 90, 0));
 				} else
@@ -86,8 +101,19 @@ public class PlayerShooting : MonoBehaviour {
 				}
 				ps.Play();
                 if (destroy_script.enabled)
-                    hit_enemy = true;
-				destroy_script.Destroy();
+                {
+                    gm.Up_the_Ante();
+                    audio_source.clip = sounds[0];
+                    audio_source.pitch = Random.Range(0.7f, 1.2f);
+                    audio_source.Play();
+                }
+                else
+                {
+                    audio_source.clip = sounds[1];
+                    audio_source.pitch = Random.Range(0.7f, 1.2f);
+                    audio_source.Play();
+                }
+                destroy_script.Destroy();
 
 				raycast.collider.GetComponent<Rigidbody2D>().AddForce(dir * shoot_knockback, ForceMode2D.Impulse);
 			}
@@ -101,16 +127,5 @@ public class PlayerShooting : MonoBehaviour {
 
 		StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
 
-		
-	}
-
-
-    public bool get_hit_enemy()
-    {
-        return hit_enemy;
-    }
-    public void reset_hit_enemy()
-    {
-        hit_enemy = false;
     }
 }

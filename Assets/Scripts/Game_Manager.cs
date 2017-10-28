@@ -9,32 +9,35 @@ public class Game_Manager : MonoBehaviour {
     public Camera_Shake cs;
     public Player_Access pa;
     public Texture2D cursor;
+    public GameObject[] spawn_locations;
+    public GameObject[] enemies;
+    public GameObject enemy_holder;
 
     void Start()
     {
-        StartCoroutine(Game_Increase());
+        StartCoroutine(spawn());
         Cursor.SetCursor(cursor,new Vector2(16, 16), CursorMode.Auto);
         
     }
 
 	// Use this for initialization
-	void Up_the_Ante () {
-        print("upped");
-        cs.shake_mult += game_multiplier / 10;
+	public void Up_the_Ante () {
+        cs.shake_mult += game_multiplier / 100;
         var main = player_shoot.explosion_ps.main;
         main.startSizeMultiplier += game_multiplier;
         var main2 = player_shoot.shoot_ps.main;
         main2.startSizeMultiplier += game_multiplier;
     }
 
-    IEnumerator Game_Increase()
+    private IEnumerator spawn()
     {
         while(true)
         {
-            Up_the_Ante();
-            yield return new WaitUntil(player_shoot.get_hit_enemy);
-            player_shoot.reset_hit_enemy();
+            GameObject g = Instantiate(enemies[Random.Range(0, 3)], spawn_locations[Random.Range(0, 4)].transform.position, Quaternion.identity, enemy_holder.transform);
+            g.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+            yield return new WaitForSeconds(Random.Range(0.6f, 1.2f));
         }
 
     }
+
 }
