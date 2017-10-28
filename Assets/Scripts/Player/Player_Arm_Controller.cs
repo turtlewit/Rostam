@@ -6,6 +6,7 @@ public class Player_Arm_Controller : MonoBehaviour {
 
     private Vector2 world_pos, target, pos;
     public float offset;
+    public GameObject arm, arm_flip;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +19,18 @@ public class Player_Arm_Controller : MonoBehaviour {
         pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 dir = (target - pos).normalized;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)) + offset));
+
+        print(transform.rotation.eulerAngles);
+        if(transform.rotation.eulerAngles.z > 120 && transform.rotation.eulerAngles.z < 300)
+        {
+            arm.SetActive(false);
+            arm_flip.SetActive(true);
+        }
+        else
+        {
+            arm_flip.SetActive(false);
+            arm.SetActive(true);
+        }
 
     }
 }
