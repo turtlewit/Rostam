@@ -765,13 +765,8 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
-      propertyPath: enemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
-        type: 2}
-      propertyPath: spawn_locations.Array.size
-      value: 4
+      propertyPath: wave_enemy_count.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4227402133694384, guid: 3e1b0b3ae43706b43b0f1df2dda2affa, type: 2}
       propertyPath: m_LocalPosition.x
@@ -822,11 +817,6 @@ Prefab:
       objectReference: {fileID: 200065732}
     - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
-      propertyPath: cursor
-      value: 
-      objectReference: {fileID: 2800000, guid: eeb5da7c047511e4681b28543399f6a7, type: 3}
-    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
-        type: 2}
       propertyPath: spawn_locations.Array.data[0]
       value: 
       objectReference: {fileID: 1191125849}
@@ -852,22 +842,44 @@ Prefab:
       objectReference: {fileID: 200065731}
     - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
-      propertyPath: enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 1912192566408026, guid: 57a0d7a23c76b4546aaec71a14eb28ea,
-        type: 2}
+      propertyPath: wave_enemy_count.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
-      propertyPath: enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 1759940736933446, guid: cbf3c08ebde867c4982eb53a75093931,
-        type: 2}
+      propertyPath: wave_enemy_count.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
-      propertyPath: enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 1477346516090278, guid: 873b42237974a234e81576a2037ac43c,
+      propertyPath: wave_enemy_count.Array.data[2]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
+      propertyPath: wave_enemy_count.Array.data[3]
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
+        type: 2}
+      propertyPath: wave_enemy_count.Array.data[4]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
+        type: 2}
+      propertyPath: wave_enemy_count.Array.data[5]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
+        type: 2}
+      propertyPath: wave_enemy_count.Array.data[6]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
+        type: 2}
+      propertyPath: wave_enemy_count.Array.data[7]
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e1b0b3ae43706b43b0f1df2dda2affa, type: 2}
   m_IsPrefabParent: 0
@@ -1686,88 +1698,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 830671317faddb84996da50b571a905a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2031157869 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1020805768006084, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
-    type: 2}
-  m_PrefabInternal: {fileID: 818506831}
---- !u!82 &2031157870
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2031157869}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 945f5c8bd1cef594caa0d9087c736836, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0

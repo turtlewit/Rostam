@@ -13,6 +13,10 @@ public class Game_Manager : MonoBehaviour {
     public GameObject[] enemies;
     public GameObject enemy_holder;
 
+    public int[] wave_enemy_count;
+    int wave = 0;
+    int death_count = 0;
+
     void Start()
     {
         StartCoroutine(spawn());
@@ -27,17 +31,34 @@ public class Game_Manager : MonoBehaviour {
         main.startSizeMultiplier += game_multiplier;
         var main2 = player_shoot.shoot_ps.main;
         main2.startSizeMultiplier += game_multiplier;
+        death_count++;
+        print(death_count);
+    }
+
+    void Update()
+    {
+
+        if (death_count == wave_enemy_count[wave])
+        {
+            print("yo");
+            wave++;
+            death_count = 0;
+            StartCoroutine(spawn());
+        }
+
     }
 
     private IEnumerator spawn()
     {
-        while(true)
+        int count = 0;
+        yield return new WaitForSeconds(0.1f);
+        while (count < wave_enemy_count[wave])
         {
             GameObject g = Instantiate(enemies[Random.Range(0, 3)], spawn_locations[Random.Range(0, 4)].transform.position, Quaternion.identity, enemy_holder.transform);
             g.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
             yield return new WaitForSeconds(Random.Range(0.6f, 1.2f));
+            count++;
         }
-
     }
 
 }
