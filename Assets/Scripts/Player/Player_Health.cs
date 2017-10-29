@@ -40,14 +40,16 @@ public class Player_Health : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Enemy" && !invulerable && col.gameObject.GetComponent<Enemy_Destroy>().enabled)
+        if (col.tag == "Enemy" && !invulerable && col.gameObject.GetComponent<Enemy_Destroy>().enabled && health > 0)
         {
-            health_sprites[health_sprite_index++].GetComponent<Animator>().SetBool("hurt", true);
+
             invulerable = true;
             health--;
             hurt.Play();
             if (health == 0)
                 StartCoroutine(death());
+            
+            health_sprites[health_sprite_index++].GetComponent<Animator>().SetBool("hurt", true);
             rb.AddForce(new Vector2(-(col.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
             StartCoroutine(c.Shake(4));
             StartCoroutine(iframes(2));
