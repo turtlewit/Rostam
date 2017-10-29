@@ -52,20 +52,12 @@ public class Player_Movement : MonoBehaviour {
     void touching_ground()
     {
         RaycastHit2D rh = Physics2D.Raycast(transform.position, Vector2.down, 1.6f, ~(1 << 9 | 1 << 2));
-        RaycastHit2D rh2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y), Vector2.down, 1.6f, ~(1 << 9 | 1 << 2));
         RaycastHit2D rh3 = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y), Vector2.down, 1.6f, ~(1 << 9 | 1 << 2));
-        if (!rh && !rh2 && !rh3)
+        if (!rh && !rh3)
             grounded = false;
         else if (rh)
         {
             if (rh.collider.tag == "Platform" || rh.collider.tag == "Enemy")
-                grounded = true;
-            else
-                grounded = false;
-        }
-        else if(rh2)
-        {
-            if (rh2.collider.tag == "Platform" || rh2.collider.tag == "Enemy")
                 grounded = true;
             else
                 grounded = false;

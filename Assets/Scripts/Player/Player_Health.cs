@@ -12,6 +12,9 @@ public class Player_Health : MonoBehaviour {
     public SpriteRenderer sr;
     public GameObject[] health_sprites;
     int health_sprite_index = 0;
+    public Sprite character_down;
+    public Animator anim;
+    public GameObject arm;
 
 	// Use this for initialization
 	void Start () {
@@ -19,9 +22,15 @@ public class Player_Health : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 	}
 
-    void death()
+    IEnumerator death()
     {
-        //Loads continue scene      
+        //Loads continue scene
+        GetComponent<Player_Movement>().enabled = false;
+        anim.enabled = false;
+        arm.SetActive(false);
+        sr.sprite = character_down;
+
+        yield return new WaitForSeconds(3f);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         SceneManager.LoadScene(2);
     }
@@ -31,11 +40,11 @@ public class Player_Health : MonoBehaviour {
     {
         if (col.tag == "Enemy" && !invulerable && col.gameObject.GetComponent<Enemy_Destroy>().enabled)
         {
-            health_sprites[health_sprite_index++].SetActive(false);
+            health_sprites[health_sprite_index++].GetComponent<Animator>().SetBool("hurt", true);
             invulerable = true;
             health--;
             if (health == 0)
-                death();
+                StartCoroutine(death());
             rb.AddForce(new Vector2(-(col.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
             StartCoroutine(c.Shake(4));
             StartCoroutine(iframes(2));
