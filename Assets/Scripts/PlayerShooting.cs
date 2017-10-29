@@ -9,6 +9,8 @@ public class PlayerShooting : MonoBehaviour {
 
 	public float accuracy;
 
+	public float shoot_knockback;
+
 	LineRenderer lr;
 	Vector3 line_target;
 
@@ -74,6 +76,8 @@ public class PlayerShooting : MonoBehaviour {
 				}
 				ps.Play();
 				destroy_script.Destroy();
+
+				raycast.collider.GetComponent<Rigidbody2D>().AddForce(dir * shoot_knockback, ForceMode2D.Impulse);
 			}
 			line_target = raycast.point;
 			draw_line_frames = 2;
