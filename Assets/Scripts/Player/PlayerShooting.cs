@@ -143,7 +143,8 @@ public class PlayerShooting : MonoBehaviour {
 		}
 
         GameObject g = Instantiate(bullet_shell, transform.position, Quaternion.identity, null);
-        g.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.02f));
+        g.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 15f));
+        g.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-2f, 2f));
         StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
 
     }
