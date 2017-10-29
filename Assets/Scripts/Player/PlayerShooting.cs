@@ -6,6 +6,7 @@ public class PlayerShooting : MonoBehaviour {
 
     public bool is_auto;
     public GameObject bullet_shell;
+    public float deepen_shot;
 
     public Game_Manager gm;
     private AudioSource audio_source;
@@ -76,10 +77,8 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot()
 	{
-        //shoot_sound.pitch = Random.Range(0.9f, 1.1f);
-        //shoot_sound.Play();
         audio_source.clip = sounds[2];
-        audio_source.pitch = Random.Range(0.9f, 1.1f);
+        audio_source.pitch = Random.Range(0.9f - deepen_shot, 1.1f - deepen_shot);
         audio_source.Play();
         world_pos = c.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, c.nearClipPlane));
 		target = new Vector2(world_pos.x, world_pos.y);
