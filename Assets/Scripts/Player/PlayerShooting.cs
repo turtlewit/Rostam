@@ -31,6 +31,9 @@ public class PlayerShooting : MonoBehaviour {
 	Vector2 target;
 	Vector2 pos;
 
+    float reload = 0;
+    public float shoot_timer;
+
 	// Use this for initialization
 	void Start () {
         audio_source = GetComponent<AudioSource>();
@@ -42,14 +45,21 @@ public class PlayerShooting : MonoBehaviour {
 
 		lr.SetPosition(1, transform.position);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || reload > shoot_timer)
         {
             Shoot();
+            reload = 0;
         }
-        else if (Input.GetButton("Fire1") && is_auto)
-            Shoot();
+        else if (Input.GetButton("Fire1"))
+        {
+            if (is_auto)
+                Shoot();
+            else
+                reload += Time.deltaTime;
+        }
 
-		lr.enabled = false;
+
+        lr.enabled = false;
 		if (draw_line_frames > 0)
 		{
 			DrawLine();
@@ -133,7 +143,8 @@ public class PlayerShooting : MonoBehaviour {
 		}
 
         GameObject g = Instantiate(bullet_shell, transform.position, Quaternion.identity, null);
-        g.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.02f));
+        g.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 15f));
+        g.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-2f, 2f));
         StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
 
     }
