@@ -20,15 +20,15 @@ public class Player_Movement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         touching_ground();
-		if(Input.GetKey(KeyCode.A))
+		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = new Vector2(-1 * Time.deltaTime * speed, rb.velocity.y);
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(1 * Time.deltaTime * speed, rb.velocity.y);
         }
-        if(Input.GetKeyDown(KeyCode.Space) && grounded)
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded)
         {
             rb.AddForce(new Vector2(0, jump_power), ForceMode2D.Impulse);
             grounded = false;
@@ -42,7 +42,7 @@ public class Player_Movement : MonoBehaviour {
         else
             anim.SetBool("moving", false);
 
-        if((!Input.GetKey(KeyCode.D)) && (!Input.GetKey(KeyCode.A)))
+        if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }

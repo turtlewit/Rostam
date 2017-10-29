@@ -78,7 +78,7 @@ public class Game_Manager : MonoBehaviour {
         {
             GameObject g = Instantiate(enemies[Random.Range(0, 3)], spawn_locations[Random.Range(0, 4)].transform.position, Quaternion.identity, enemy_holder.transform);
 			SpriteRenderer gsr = g.GetComponent<SpriteRenderer> ();
-            Vector3 new_color = colors[Random.Range(0, 13)];
+            Vector3 new_color = colors[Random.Range(0, 12)];
             gsr.color = new Color(new_color.x, new_color.y, new_color.z) ;
 			g.GetComponent<Enemy_Destroy> ().initial_color = gsr.color;
 

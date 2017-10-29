@@ -15,11 +15,13 @@ public class Player_Health : MonoBehaviour {
     public Sprite character_down;
     public Animator anim;
     public GameObject arm;
+    private AudioSource hurt;
 
 	// Use this for initialization
 	void Start () {
         c = Camera.main.GetComponent<Camera_Shake>();
         rb = GetComponent<Rigidbody2D>();
+        hurt = GetComponent<AudioSource>();   
 	}
 
     IEnumerator death()
@@ -43,6 +45,7 @@ public class Player_Health : MonoBehaviour {
             health_sprites[health_sprite_index++].GetComponent<Animator>().SetBool("hurt", true);
             invulerable = true;
             health--;
+            hurt.Play();
             if (health == 0)
                 StartCoroutine(death());
             rb.AddForce(new Vector2(-(col.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
