@@ -20,14 +20,16 @@ public class DecalScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (current_time <= 0) {
-			sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, alpha);
-			alpha -= (1 / fadetime) * Time.deltaTime;
-			if (alpha <= 0) {
-				Destroy (gameObject);
+		if (time != -1) {
+			if (current_time <= 0) {
+				sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, alpha);
+				alpha -= (1 / fadetime) * Time.deltaTime;
+				if (alpha <= 0) {
+					Destroy (gameObject);
+				}
+			} else {
+				current_time -= Time.deltaTime;
 			}
-		} else {
-			current_time -= Time.deltaTime;
 		}
 	}
 }
