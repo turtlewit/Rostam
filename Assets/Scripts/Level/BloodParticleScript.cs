@@ -21,6 +21,9 @@ public class BloodParticleScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (sprite_parent == transform.parent.transform.parent.GetComponent<Player_Access> ().sprite_parent) {
+			sprite_parent = transform.parent.transform.parent.GetComponent<Player_Access> ().sprite_parent;
+		}
 		
 	}
 	void OnParticleCollision(GameObject other){
