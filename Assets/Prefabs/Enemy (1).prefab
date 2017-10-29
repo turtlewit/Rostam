@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4042404931565898}
   - component: {fileID: 198236512814399384}
+  - component: {fileID: 114624059338236824}
   - component: {fileID: 199414337308616676}
   m_Layer: 0
   m_Name: Particle System
@@ -194,6 +195,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ps: {fileID: 198236512814399384}
   efm: {fileID: 114177801984097158}
+--- !u!114 &114624059338236824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182366694369138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f69ac4d3b46a3f49b3d82b717453ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite_parent: {fileID: 0}
+  blood: {fileID: 1289977375377082, guid: e6c5740cbe8528a4dbd2952f344c94f8, type: 2}
 --- !u!198 &198236512814399384
 ParticleSystem:
   m_ObjectHideFlags: 1
