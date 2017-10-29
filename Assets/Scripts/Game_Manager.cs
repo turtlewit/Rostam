@@ -12,6 +12,7 @@ public class Game_Manager : MonoBehaviour {
     public GameObject[] spawn_locations;
     public GameObject[] enemies;
     public GameObject enemy_holder;
+    public LineRenderer p_shot;
 
     public int[] wave_enemy_count;
     int wave = 0;
@@ -31,6 +32,7 @@ public class Game_Manager : MonoBehaviour {
         main.startSizeMultiplier += game_multiplier;
         var main2 = player_shoot.shoot_ps.main;
         main2.startSizeMultiplier += game_multiplier;
+        p_shot.widthMultiplier += game_multiplier/10;
         death_count++;
     }
 

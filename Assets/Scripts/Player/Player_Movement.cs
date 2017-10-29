@@ -6,8 +6,7 @@ public class Player_Movement : MonoBehaviour {
 
     private Rigidbody2D rb;
     public float speed, jump_power;
-    private bool grounded = false, invulerable = false;
-    private Camera_Shake c;
+    private bool grounded = false;
     int shake_count = 0;
     public Animator anim;
 
@@ -16,7 +15,6 @@ public class Player_Movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        c = Camera.main.GetComponent<Camera_Shake>();
 	}
 	
 	// Update is called once per frame
@@ -79,34 +77,5 @@ public class Player_Movement : MonoBehaviour {
             else
                 grounded = false;
         }
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.tag == "Enemy" && !invulerable && col.gameObject.GetComponent<Enemy_Destroy>().enabled)
-        {
-            invulerable = true;
-            rb.AddForce(new Vector2(-(col.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
-            StartCoroutine(c.Shake(4));
-            StartCoroutine(iframes(2));
-        }
-    }
-
-    private IEnumerator iframes(float time)
-    {
-        float timer = Time.time;
-        float end_time = timer + time;
-        bool flash_on = false;
-        //SpriteRenderer sr = GetComponent<SpriteRenderer>();
-
-        while(timer < end_time)
-        {
-            sr.color = flash_on ? new Color(sr.color.r, sr.color.g, sr.color.b, .2f) : new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-            timer += 0.07f;
-            flash_on = !flash_on;
-            yield return new WaitForSeconds(0.07f);
-        }
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-        invulerable = false;
     }
 }
