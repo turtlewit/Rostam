@@ -13,6 +13,6 @@ public class Continue_Scene : MonoBehaviour
 
     public void close()
     {
-        Application.Quit();
+		SceneManager.LoadScene(3);
     }
 }
