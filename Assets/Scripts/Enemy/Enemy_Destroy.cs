@@ -36,7 +36,8 @@ public class Enemy_Destroy : MonoBehaviour {
 		{
 			for (int i = 0; i < number_of_decals; i++){
 				GameObject obj = Instantiate (blood, transform.position, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
-				obj.transform.localScale = new Vector3 (Random.Range (0.35f, 0.5f), Random.Range (0.35f, 0.5f), 1);
+				float s = Random.Range (0.35f, 0.5f);
+				obj.transform.localScale = new Vector3 (s, s, 1);
 				obj.transform.SetParent (sprite_parent.transform);
 				obj.GetComponent<SpriteRenderer> ().color = initial_color;
 			}
