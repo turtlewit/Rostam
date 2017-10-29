@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   jump_power: 8
+  anim: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!212 &212735143788013524
 SpriteRenderer:
   m_ObjectHideFlags: 1

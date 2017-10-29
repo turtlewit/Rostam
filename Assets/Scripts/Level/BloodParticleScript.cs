@@ -6,6 +6,10 @@ public class BloodParticleScript : MonoBehaviour {
 
 	public GameObject sprite_parent;
 	public GameObject blood;
+	public int max_sprites;
+
+	private int spawned_sprites = 0;
+	private bool spawn_sprites = true;
 
 	public List<ParticleCollisionEvent> collision_events;
 
@@ -28,12 +32,26 @@ public class BloodParticleScript : MonoBehaviour {
 	}
 	void OnParticleCollision(GameObject other){
 		ParticlePhysicsExtensions.GetCollisionEvents (ps, other, collision_events);
-
-		for (int i = 0; i < collision_events.Count; i++) 
-		{
-			GameObject obj = Instantiate (blood, collision_events[i].intersection, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
+		/*
+		if (spawn_sprites) {
+			for (int i = 0; i < collision_events.Count; i++) {
+				GameObject obj = Instantiate (blood, collision_events [i].intersection, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
+				obj.transform.localScale = new Vector3 (Random.Range (0.1f, 0.2f), Random.Range (0.1f, 0.2f), 1);
+				obj.transform.SetParent (sprite_parent.transform);
+				spawned_sprites++;
+				if (spawned_sprites >= max_sprites) {
+					spawn_sprites = false;
+				}
+			}
+		}*/
+		if (spawn_sprites) {
+			GameObject obj = Instantiate (blood, collision_events [0].intersection, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
 			obj.transform.localScale = new Vector3 (Random.Range (0.1f, 0.2f), Random.Range (0.1f, 0.2f), 1);
 			obj.transform.SetParent (sprite_parent.transform);
+			spawned_sprites++;
+			if (spawned_sprites >= max_sprites) {
+				spawn_sprites = false;
+			}
 		}
 	}
 }

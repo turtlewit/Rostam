@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game_Manager : MonoBehaviour {
 
-    private float game_multiplier = 0.005f;
+    private float game_multiplier = 0.01f;
     public PlayerShooting player_shoot;
     public Camera_Shake cs;
     public Player_Access pa;
@@ -12,6 +12,7 @@ public class Game_Manager : MonoBehaviour {
     public GameObject[] spawn_locations;
     public GameObject[] enemies;
     public GameObject enemy_holder;
+    public LineRenderer p_shot;
 
     public int[] wave_enemy_count;
     int wave = 0;
@@ -31,8 +32,8 @@ public class Game_Manager : MonoBehaviour {
         main.startSizeMultiplier += game_multiplier;
         var main2 = player_shoot.shoot_ps.main;
         main2.startSizeMultiplier += game_multiplier;
+        p_shot.widthMultiplier += game_multiplier/10;
         death_count++;
-        print(death_count);
     }
 
     void Update()
@@ -40,7 +41,6 @@ public class Game_Manager : MonoBehaviour {
 
         if (death_count == wave_enemy_count[wave])
         {
-            print("yo");
             wave++;
             death_count = 0;
             StartCoroutine(spawn());
