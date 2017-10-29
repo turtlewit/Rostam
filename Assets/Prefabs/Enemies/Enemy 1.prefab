@@ -166,6 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ae56be99e39f346b4862ff862f5b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite_parent: {fileID: 0}
+  blood: {fileID: 1758291587794754, guid: 8fb2b5393efa6934ebb88197ebf7fe3c, type: 2}
+  initial_color: {r: 0, g: 0, b: 0, a: 0}
+  number_of_decals: 3
   ps: {fileID: 198310607600642426}
   efm: {fileID: 0}
 --- !u!114 &114649353609362330
