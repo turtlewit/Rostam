@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
 
+    public bool is_auto;
+
+
     public Game_Manager gm;
     private AudioSource audio_source;
     //0 = kill enemy
@@ -39,9 +42,12 @@ public class PlayerShooting : MonoBehaviour {
 
 		lr.SetPosition(1, transform.position);
 
-		if (Input.GetButtonDown("Fire1")) {
-			Shoot();
-		}
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+        else if (Input.GetButton("Fire1") && is_auto)
+            Shoot();
 
 		lr.enabled = false;
 		if (draw_line_frames > 0)
