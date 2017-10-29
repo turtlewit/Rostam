@@ -8,6 +8,8 @@ public class BloodParticleScript : MonoBehaviour {
 	public GameObject blood;
 	public int max_sprites;
 
+	public AudioSource aus;
+
 	public int spawned_sprites = 0;
 	private bool spawn_sprites = true;
 
@@ -18,6 +20,8 @@ public class BloodParticleScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sprite_parent = transform.parent.transform.parent.GetComponent<Player_Access> ().sprite_parent;
+
+		aus = GetComponent<AudioSource> ();
 
 		ps = GetComponent<ParticleSystem> ();
 		collision_events = new List<ParticleCollisionEvent> ();
@@ -49,6 +53,7 @@ public class BloodParticleScript : MonoBehaviour {
 			obj.transform.localScale = new Vector3 (Random.Range (0.1f, 0.2f), Random.Range (0.1f, 0.2f), 1);
 			obj.transform.SetParent (sprite_parent.transform);
 			spawned_sprites++;
+			aus.PlayOneShot (aus.clip);
 			if (spawned_sprites >= max_sprites) {
 				spawn_sprites = false;
 			}
