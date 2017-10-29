@@ -8,7 +8,7 @@ public class BloodParticleScript : MonoBehaviour {
 	public GameObject blood;
 	public int max_sprites;
 
-	private int spawned_sprites = 0;
+	public int spawned_sprites = 0;
 	private bool spawn_sprites = true;
 
 	public List<ParticleCollisionEvent> collision_events;

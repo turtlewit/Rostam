@@ -34,6 +34,7 @@ public class Enemy_Destroy : MonoBehaviour {
 			GetComponent<Enemy_Movement>().enabled = false;
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8), ForceMode2D.Impulse);
 			GetComponent<SpriteRenderer>().color = Color.gray;
+			GetComponent<Enemy_Explode> ().enabled = true;
 			enabled = false;
 		} else
 		{
