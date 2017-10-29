@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 549109062}
   - component: {fileID: 549109061}
   - component: {fileID: 549109063}
+  - component: {fileID: 549109064}
   m_Layer: 0
   m_Name: Floor (3)
   m_TagString: Platform
@@ -477,6 +478,31 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!61 &549109064
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 549109059}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 3846fc081511fc4408da6c95f6923dfa, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10980296, y: -0.47931802}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15, y: 10}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.372933, y: 0.13784862}
+  m_EdgeRadius: 0
 --- !u!1 &578804888
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +927,7 @@ GameObject:
   - component: {fileID: 995346041}
   - component: {fileID: 995346040}
   - component: {fileID: 995346042}
+  - component: {fileID: 995346043}
   m_Layer: 0
   m_Name: Floor (4)
   m_TagString: Platform
@@ -1001,6 +1028,31 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!61 &995346043
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 995346038}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 3846fc081511fc4408da6c95f6923dfa, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09390557, y: -0.4031672}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15, y: 10}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.384638, y: 0.11112487}
+  m_EdgeRadius: 0
 --- !u!1 &1039235474 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1879084430957336, guid: 830671317faddb84996da50b571a905a,
@@ -1073,6 +1125,7 @@ GameObject:
   - component: {fileID: 1073279646}
   - component: {fileID: 1073279645}
   - component: {fileID: 1073279647}
+  - component: {fileID: 1073279648}
   m_Layer: 0
   m_Name: Floor (5)
   m_TagString: Platform
@@ -1173,6 +1226,31 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!61 &1073279648
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1073279643}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 3846fc081511fc4408da6c95f6923dfa, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1102612, y: -0.43534988}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15, y: 10}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.360926, y: 0.11844435}
+  m_EdgeRadius: 0
 --- !u!4 &1073813404 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4899462446426894, guid: cbf3c08ebde867c4982eb53a75093931,
