@@ -62,7 +62,7 @@ public class Player_Movement : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Enemy" && !invulerable)
+        if (col.tag == "Enemy" && !invulerable && col.gameObject.GetComponent<Enemy_Destroy>().enabled)
         {
             invulerable = true;
             rb.AddForce(new Vector2(-(col.transform.position - transform.position).x * 2, 5), ForceMode2D.Impulse);
