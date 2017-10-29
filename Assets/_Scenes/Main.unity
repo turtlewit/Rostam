@@ -144,6 +144,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &88197877 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1041154047567278, guid: 830671317faddb84996da50b571a905a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924275052}
 --- !u!4 &157467306 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4593346914572204, guid: 873b42237974a234e81576a2037ac43c,
@@ -1161,6 +1166,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!198 &1481553611 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198343194105153496, guid: 830671317faddb84996da50b571a905a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924275052}
 --- !u!1 &1719784887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1527,26 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
+        type: 2}
+      propertyPath: shoot_ps
+      value: 
+      objectReference: {fileID: 1481553611}
+    - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
+        type: 2}
+      propertyPath: explosion_ps
+      value: 
+      objectReference: {fileID: 1971723308}
+    - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
+        type: 2}
+      propertyPath: line
+      value: 
+      objectReference: {fileID: 88197877}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 830671317faddb84996da50b571a905a, type: 2}
   m_IsPrefabParent: 0
+--- !u!198 &1971723308 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198640947920825578, guid: 830671317faddb84996da50b571a905a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924275052}

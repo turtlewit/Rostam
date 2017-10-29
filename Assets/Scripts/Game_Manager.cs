@@ -27,7 +27,7 @@ public class Game_Manager : MonoBehaviour {
 
 	// Use this for initialization
 	public void Up_the_Ante () {
-        cs.shake_mult += game_multiplier / 100;
+        cs.shake_mult += game_multiplier * 1.05f;
         var main = player_shoot.explosion_ps.main;
         main.startSizeMultiplier += game_multiplier;
         var main2 = player_shoot.shoot_ps.main;
@@ -38,7 +38,6 @@ public class Game_Manager : MonoBehaviour {
 
     void Update()
     {
-
         if (death_count == wave_enemy_count[wave])
         {
             wave++;
@@ -52,6 +51,8 @@ public class Game_Manager : MonoBehaviour {
     {
         int count = 0;
         yield return new WaitForSeconds(0.1f);
+        if (wave == wave_enemy_count.Length)
+            wave--;
         while (count < wave_enemy_count[wave])
         {
             GameObject g = Instantiate(enemies[Random.Range(0, 3)], spawn_locations[Random.Range(0, 4)].transform.position, Quaternion.identity, enemy_holder.transform);
