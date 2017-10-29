@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game_Manager : MonoBehaviour {
 
-    private float game_multiplier = 0.01f;
+    private float game_multiplier = 0.05f;
     public PlayerShooting player_shoot;
     public Camera_Shake cs;
     public Player_Access pa;
@@ -32,7 +32,12 @@ public class Game_Manager : MonoBehaviour {
         main.startSizeMultiplier += game_multiplier;
         var main2 = player_shoot.shoot_ps.main;
         main2.startSizeMultiplier += game_multiplier;
-        p_shot.widthMultiplier += game_multiplier/10;
+        main2.startSpeedMultiplier += game_multiplier;
+        p_shot.widthMultiplier += game_multiplier/10f;
+        if(player_shoot.shoot_timer > 0.09f)
+            player_shoot.shoot_timer -= game_multiplier / 30f;
+        if (player_shoot.accuracy < 0.6)
+            player_shoot.accuracy += game_multiplier / 20f;
         death_count++;
     }
 

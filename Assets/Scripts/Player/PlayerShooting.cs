@@ -52,6 +52,7 @@ public class PlayerShooting : MonoBehaviour {
         }
         else if (Input.GetButton("Fire1"))
         {
+            print(shoot_timer);
             if (is_auto)
                 Shoot();
             else
