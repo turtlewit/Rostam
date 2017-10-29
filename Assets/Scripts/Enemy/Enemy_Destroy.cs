@@ -11,6 +11,9 @@ public class Enemy_Destroy : MonoBehaviour {
 
 	public int number_of_decals;
 
+	public float min_sprite_scale;
+	public float max_sprite_scale;
+
 	public ParticleSystem ps;
 	public Enemy_Flying_Movement efm;
 	// Use this for initialization
@@ -35,8 +38,8 @@ public class Enemy_Destroy : MonoBehaviour {
 		} else
 		{
 			for (int i = 0; i < number_of_decals; i++){
-				GameObject obj = Instantiate (blood, transform.position, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
-				float s = Random.Range (0.35f, 0.5f);
+				GameObject obj = Instantiate (blood, transform.position, Quaternion.Euler (0, 0, Random.Range (0, 360)));
+				float s = Random.Range (min_sprite_scale, max_sprite_scale);
 				obj.transform.localScale = new Vector3 (s, s, 1);
 				obj.transform.SetParent (sprite_parent.transform);
 				obj.GetComponent<SpriteRenderer> ().color = initial_color;

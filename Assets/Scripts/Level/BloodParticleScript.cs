@@ -45,7 +45,7 @@ public class BloodParticleScript : MonoBehaviour {
 			}
 		}*/
 		if (spawn_sprites) {
-			GameObject obj = Instantiate (blood, collision_events [0].intersection, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
+			GameObject obj = Instantiate (blood, collision_events [0].intersection, Quaternion.Euler (new Vector3 (0, 0, Random.Range (0, 360))));
 			obj.transform.localScale = new Vector3 (Random.Range (0.1f, 0.2f), Random.Range (0.1f, 0.2f), 1);
 			obj.transform.SetParent (sprite_parent.transform);
 			spawned_sprites++;
