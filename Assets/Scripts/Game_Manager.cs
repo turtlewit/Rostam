@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game_Manager : MonoBehaviour {
 
-    private float game_multiplier = 0.002f;
+    private float game_multiplier = 0.005f;
     public PlayerShooting player_shoot;
     public Camera_Shake cs;
     public Player_Access pa;
