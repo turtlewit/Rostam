@@ -38,7 +38,7 @@ public class Enemy_Destroy : MonoBehaviour {
 				GameObject obj = Instantiate (blood, transform.position, Quaternion.Euler (new Vector3 (Random.Range (0, 360), Random.Range (0, 360), 0)));
 				obj.transform.localScale = new Vector3 (Random.Range (0.35f, 0.5f), Random.Range (0.35f, 0.5f), 1);
 				obj.transform.SetParent (sprite_parent.transform);
-				obj.GetComponent<SpriteRenderer> ().color = GetComponent<SpriteRenderer> ().color;
+				obj.GetComponent<SpriteRenderer> ().color = initial_color;
 			}
 			Destroy (gameObject);
 		}

@@ -268,6 +268,11 @@ Transform:
   m_Father: {fileID: 6063874}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &495266734 stripped
+LineRenderer:
+  m_PrefabParentObject: {fileID: 120275482506467288, guid: 830671317faddb84996da50b571a905a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924275052}
 --- !u!1 &578804888
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +546,11 @@ Prefab:
       propertyPath: wave_enemy_count.Array.data[7]
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
+        type: 2}
+      propertyPath: p_shot
+      value: 
+      objectReference: {fileID: 495266734}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e1b0b3ae43706b43b0f1df2dda2affa, type: 2}
   m_IsPrefabParent: 0
