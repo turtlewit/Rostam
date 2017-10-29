@@ -69,6 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606331671997266}
   - component: {fileID: 212192067940497538}
+  - component: {fileID: 95081750571183924}
   m_Layer: 2
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -153,6 +154,7 @@ GameObject:
   - component: {fileID: 4956511296684458}
   - component: {fileID: 198343194105153496}
   - component: {fileID: 199319479947874668}
+  - component: {fileID: 82938666257346856}
   m_Layer: 2
   m_Name: Gun_Shoot
   m_TagString: Untagged
@@ -440,6 +442,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82938666257346856
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1901672102378204}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6c7c22027b42b084987be8e198e7c67a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!95 &95081750571183924
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427042525760784}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e49bda13710ab24fb830e11e32bbd67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114359018943925548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,6 +566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   jump_power: 13
+  anim: {fileID: 95081750571183924}
   sr: {fileID: 212192067940497538}
 --- !u!114 &114458959656270020
 MonoBehaviour:
@@ -481,6 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
   sounds: []
+  shoot_sound: {fileID: 0}
   c: {fileID: 0}
   line: {fileID: 1041154047567278}
   accuracy: 0.2
@@ -502,6 +603,8 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: e9cc18ee33945534e802af5483c8dfc8, type: 3}
   - {fileID: 8300000, guid: 76ef801d550b9684c8c9190aa70d8fa7, type: 3}
+  - {fileID: 8300000, guid: 6c7c22027b42b084987be8e198e7c67a, type: 3}
+  shoot_sound: {fileID: 82938666257346856}
   c: {fileID: 0}
   line: {fileID: 1041154047567278}
   accuracy: 0.2
@@ -541,13 +644,13 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.04
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -7361,7 +7464,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
