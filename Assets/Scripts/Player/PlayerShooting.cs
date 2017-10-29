@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour {
 
     public bool is_auto;
-
+    public GameObject bullet_shell;
 
     public Game_Manager gm;
     private AudioSource audio_source;
@@ -77,12 +77,13 @@ public class PlayerShooting : MonoBehaviour {
 
         shoot_ps.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)));
         shoot_ps.Play();
-        
+
+   
 
 		float n_accuracy = (float)(accuracy * (new System.Random().NextDouble() * new System.Random().NextDouble())); // Great hack to reduce chance of high direction variation
 		dir = new Vector2(dir.x + Random.Range(-n_accuracy, n_accuracy), dir.y + Random.Range(-n_accuracy, n_accuracy));
 
-		RaycastHit2D raycast = Physics2D.Raycast(pos, dir);
+		RaycastHit2D raycast = Physics2D.Raycast(pos, dir, 100f, ~(1 << 9));
 		
 		if (raycast.collider)
 		{
@@ -131,7 +132,9 @@ public class PlayerShooting : MonoBehaviour {
 			draw_line_frames = 2;
 		}
 
-		StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
+        GameObject g = Instantiate(bullet_shell, transform.position, Quaternion.identity, null);
+        g.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.02f));
+        StartCoroutine(c.GetComponent<Camera_Shake>().Shake(1, 3));
 
     }
 }

@@ -53,9 +53,9 @@ public class Player_Movement : MonoBehaviour {
 
     void touching_ground()
     {
-        RaycastHit2D rh = Physics2D.Raycast(transform.position, Vector2.down, 1.5f);
-        RaycastHit2D rh2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y), Vector2.down, 1.5f);
-        RaycastHit2D rh3 = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y), Vector2.down, 1.5f);
+        RaycastHit2D rh = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, (1 << 9));
+        RaycastHit2D rh2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y), Vector2.down, 1.5f, (1 << 9));
+        RaycastHit2D rh3 = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y), Vector2.down, 1.5f, (1 << 9));
         if (!rh && !rh2 && !rh3)
             grounded = false;
         else if (rh)

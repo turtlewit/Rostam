@@ -191,7 +191,7 @@ Transform:
   - {fileID: 1335495215}
   - {fileID: 1073813404}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243844365
 GameObject:
@@ -652,7 +652,7 @@ Transform:
   - {fileID: 995346039}
   - {fileID: 1073279644}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800617585
 GameObject:
@@ -803,7 +803,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4227402133694384, guid: 3e1b0b3ae43706b43b0f1df2dda2affa, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114900828643333550, guid: 3e1b0b3ae43706b43b0f1df2dda2affa,
         type: 2}
@@ -1588,7 +1588,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4875026150570278, guid: 830671317faddb84996da50b571a905a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
         type: 2}
@@ -1657,8 +1657,20 @@ Prefab:
     - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
         type: 2}
       propertyPath: is_auto
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114458959656270020, guid: 830671317faddb84996da50b571a905a,
+        type: 2}
+      propertyPath: bullet_shell
+      value: 
+      objectReference: {fileID: 1827173902474724, guid: d50221be7be71b1409102f1434f83095,
+        type: 2}
+    - target: {fileID: 114505229647580846, guid: 830671317faddb84996da50b571a905a,
+        type: 2}
+      propertyPath: bullet_shell
+      value: 
+      objectReference: {fileID: 1827173902474724, guid: d50221be7be71b1409102f1434f83095,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 830671317faddb84996da50b571a905a, type: 2}
   m_IsPrefabParent: 0
