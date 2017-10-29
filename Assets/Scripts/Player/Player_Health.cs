@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour {
 
@@ -20,7 +21,9 @@ public class Player_Health : MonoBehaviour {
 
     void death()
     {
-
+        //Loads continue scene      
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        SceneManager.LoadScene(2);
     }
 
 
