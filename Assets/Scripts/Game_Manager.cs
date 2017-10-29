@@ -55,7 +55,10 @@ public class Game_Manager : MonoBehaviour {
         while (count < wave_enemy_count[wave])
         {
             GameObject g = Instantiate(enemies[Random.Range(0, 3)], spawn_locations[Random.Range(0, 4)].transform.position, Quaternion.identity, enemy_holder.transform);
-            g.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+			SpriteRenderer gsr = g.GetComponent<SpriteRenderer> ();
+            gsr.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+			g.GetComponent<Enemy_Destroy> ().initial_color = gsr.color;
+
             yield return new WaitForSeconds(Random.Range(0.6f, 1.2f));
             count++;
         }
