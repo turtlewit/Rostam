@@ -9,7 +9,8 @@ public class Player_Health : MonoBehaviour {
     private Rigidbody2D rb;
     bool invulerable = false;
     private Camera_Shake c;
-    public SpriteRenderer sr;
+    public SpriteRenderer[] sr;
+    public SpriteRenderer old_player_sprite;
     public GameObject[] health_sprites;
     int health_sprite_index = 0;
     public Sprite character_down;
@@ -30,7 +31,12 @@ public class Player_Health : MonoBehaviour {
         GetComponent<Player_Movement>().enabled = false;
         anim.enabled = false;
         arm.SetActive(false);
-        sr.sprite = character_down;
+        for(int i = 0; i <sr.Length; ++i)
+        {
+            sr[i].enabled = false;
+        }
+        old_player_sprite.enabled = true;
+        old_player_sprite.sprite = character_down;
 
         yield return new WaitForSeconds(3f);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -65,12 +71,18 @@ public class Player_Health : MonoBehaviour {
 
         while (timer < end_time)
         {
-            sr.color = flash_on ? new Color(sr.color.r, sr.color.g, sr.color.b, .2f) : new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-            timer += 0.07f;
+            for(int i = 0; i < sr.Length; ++i)
+            {
+                sr[i].color = flash_on ? new Color(sr[i].color.r, sr[i].color.g, sr[i].color.b, .2f) : new Color(sr[i].color.r, sr[i].color.g, sr[i].color.b, 1);
+            }
             flash_on = !flash_on;
+            timer += 0.07f;
             yield return new WaitForSeconds(0.07f);
         }
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+        for (int i = 0; i < sr.Length; ++i)
+        {
+            sr[i].color = new Color(sr[i].color.r, sr[i].color.g, sr[i].color.b, 1);
+        }
         invulerable = false;
     }
 }

@@ -23,12 +23,14 @@ public class Player_Movement : MonoBehaviour {
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = new Vector2(-1 * Time.deltaTime * speed, rb.velocity.y);
+            transform.localScale = new Vector3(1, 1, 1);
         }
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(1 * Time.deltaTime * speed, rb.velocity.y);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded && rb.velocity.y < 1)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded && rb.velocity.y < 1)
         {
             print(rb.velocity.y);   
             rb.AddForce(new Vector2(0, jump_power), ForceMode2D.Impulse);
@@ -38,16 +40,17 @@ public class Player_Movement : MonoBehaviour {
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 0.3f);
         }
-        if (rb.velocity.x != 0)
-            anim.SetBool("moving", true);
-        else
-            anim.SetBool("moving", false);
+
 
         if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-	}
+        if (rb.velocity.x != 0)
+            anim.SetBool("moving", true);
+        else
+            anim.SetBool("moving", false);
+    }
 
 
     void touching_ground()

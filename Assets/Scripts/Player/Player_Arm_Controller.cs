@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player_Arm_Controller : MonoBehaviour {
 
     private Vector2 world_pos, target, pos;
-    public float offset;
+    public float offset, offset2;
+    public float top, bottom;
     public GameObject arm, arm_flip;
 	// Use this for initialization
 	void Start () {
@@ -18,18 +19,39 @@ public class Player_Arm_Controller : MonoBehaviour {
         target = new Vector2(world_pos.x, world_pos.y);
         pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 dir = (target - pos).normalized;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)) + offset));
 
-        if(transform.rotation.eulerAngles.z > 120 && transform.rotation.eulerAngles.z < 300)
+        if(transform.parent.parent.localScale.x == 1)
         {
-            arm.SetActive(false);
-            arm_flip.SetActive(true);
+            if (transform.rotation.eulerAngles.z > 120 && transform.rotation.eulerAngles.z < 300)
+            {
+                arm.SetActive(false);
+                arm_flip.SetActive(true);
+            }
+            else
+            {
+                arm_flip.SetActive(false);
+                arm.SetActive(true);
+            }
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)) + offset));
+
         }
         else
         {
-            arm_flip.SetActive(false);
-            arm.SetActive(true);
+            print("y");
+            if (transform.rotation.eulerAngles.z > top && transform.rotation.eulerAngles.z < bottom)
+            {
+                arm.SetActive(false);
+                arm_flip.SetActive(true);
+            }
+            else
+            {
+                arm_flip.SetActive(false);
+                arm.SetActive(true);
+            }
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x)) + offset + offset2));
+
         }
+
 
     }
 }
