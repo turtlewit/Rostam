@@ -14,7 +14,7 @@ public class Camera_Follow_with_Mouse : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         position_to_track = thing_to_track.transform.position;
