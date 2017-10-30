@@ -28,8 +28,9 @@ public class Player_Movement : MonoBehaviour {
         {
             rb.velocity = new Vector2(1 * Time.deltaTime * speed, rb.velocity.y);
         }
-        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded)
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded && rb.velocity.y < 1)
         {
+            print(rb.velocity.y);   
             rb.AddForce(new Vector2(0, jump_power), ForceMode2D.Impulse);
             grounded = false;
         }
