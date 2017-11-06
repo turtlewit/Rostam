@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game_Manager : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class Game_Manager : MonoBehaviour {
     public GameObject[] enemies;
     public GameObject enemy_holder;
     public LineRenderer p_shot;
+    public Text death_counter;
 
     private Vector3[] colors = new Vector3[12];
 
@@ -55,6 +57,7 @@ public class Game_Manager : MonoBehaviour {
         if (player_shoot.deepen_shot < 0.3)
             player_shoot.deepen_shot += game_multiplier / 20f;
         death_count++;
+        death_counter.text = "Kill Count: " + death_count;
     }
 
     void Update()

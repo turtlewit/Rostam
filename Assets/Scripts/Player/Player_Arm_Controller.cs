@@ -37,7 +37,7 @@ public class Player_Arm_Controller : MonoBehaviour {
         }
         else
         {
-            print("y");
+
             if (transform.rotation.eulerAngles.z > top && transform.rotation.eulerAngles.z < bottom)
             {
                 arm.SetActive(false);

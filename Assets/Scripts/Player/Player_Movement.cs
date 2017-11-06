@@ -32,7 +32,7 @@ public class Player_Movement : MonoBehaviour {
         }
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded && rb.velocity.y < 1)
         {
-            print(rb.velocity.y);   
+
             rb.AddForce(new Vector2(0, jump_power), ForceMode2D.Impulse);
             grounded = false;
         }
